@@ -64,6 +64,7 @@ void recvmg(void *sock){
 
 int main(int argc,char *argv[]){
 	
+	std::vector<std::thread> ThreadVector;
 	struct sockaddr_in my_addr,their_addr;
 	int my_sock;
 	int their_sock;
@@ -97,7 +98,7 @@ int main(int argc,char *argv[]){
 	}
 
 
-        std::vector<std::thread> ThreadVector;
+    
 	while(1) {
 		if((their_sock = accept(my_sock,(struct sockaddr *)&their_addr,&their_addr_size)) < 0) {
 			perror("accept unsuccessful");
