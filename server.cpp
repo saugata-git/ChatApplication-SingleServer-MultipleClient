@@ -11,20 +11,16 @@
 #include <mutex> 
 #include<vector>
 
-
-
 struct client_info {
 	int sockno;
 	char ip[INET_ADDRSTRLEN];
 };
+
 int clients[100];
 int n = 0;
-
 std::mutex mtx;
 
-
-void sendtoall(char *msg,int curr)
-{
+void sendtoall(char *msg,int curr){
 	int i;
 	mtx.lock();
 	for(i = 0; i < n; i++) {
@@ -37,8 +33,8 @@ void sendtoall(char *msg,int curr)
 	}
 	mtx.unlock();
 }
-void recvmg(void *sock)
-{
+void recvmg(void *sock){
+	
 	struct client_info cl = *((struct client_info *)sock);
 	char msg[500];
 	int len;
@@ -65,18 +61,19 @@ void recvmg(void *sock)
 	mtx.unlock();
 	
 }
-int main(int argc,char *argv[])
-{
+
+int main(int argc,char *argv[]){
+	
 	struct sockaddr_in my_addr,their_addr;
 	int my_sock;
 	int their_sock;
 	socklen_t their_addr_size;
 	int portno;
-	//pthread_t sendt,recvt;
 	char msg[500];
 	int len;
 	struct client_info cl;
 	char ip[INET_ADDRSTRLEN];
+	
 	if(argc > 2) {
 		printf("too many arguments");
 		exit(1);
@@ -113,9 +110,7 @@ int main(int argc,char *argv[])
 		strcpy(cl.ip,ip);
 		clients[n] = their_sock;
 		n++;
-		
 		ThreadVector.emplace_back([&](){recvmg(&cl);});
-
 		mtx.unlock();
 	}
 	return 0;
