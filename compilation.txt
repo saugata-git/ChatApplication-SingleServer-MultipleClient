@@ -8,4 +8,10 @@ g++ client.cpp -std=c++0x -lpthread -o client
 ./client Sham 8080
 
 g++ client.cpp -std=c++0x -lpthread -o client
-./client Sham 8080
+./client Jadu 8080
+
+g++ client.cpp -std=c++0x -lpthread -o client
+./client Madu 8080
+
+
+
