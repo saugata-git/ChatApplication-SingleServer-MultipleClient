@@ -1,1 +1,1 @@
-# MultihreadedChatApplication-C-
+# ChatApplication-SingleServer-MultipleClient-Multithreaded-Synchronized
