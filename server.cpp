@@ -97,8 +97,6 @@ int main(int argc,char *argv[]){
 		exit(1);
 	}
 
-
-    
 	while(1) {
 		if((their_sock = accept(my_sock,(struct sockaddr *)&their_addr,&their_addr_size)) < 0) {
 			perror("accept unsuccessful");
