@@ -10,9 +10,8 @@
 #include <thread>         
 #include <mutex> 
 
-
-void recvmg(void *sock)
-{
+void recvmg(void *sock){
+	
 	int their_sock = *((int *)sock);
 	char msg[500];
 	int len;
@@ -22,8 +21,9 @@ void recvmg(void *sock)
 		memset(msg,'\0',sizeof(msg));
 	}
 }
-int main(int argc, char *argv[])
-{
+
+int main(int argc, char *argv[]){
+	
 	struct sockaddr_in their_addr;
 	int my_sock;
 	int their_sock;
@@ -69,5 +69,5 @@ int main(int argc, char *argv[])
 	}
 	t1.join();
 	close(my_sock);
-
+        return 0;
 }
