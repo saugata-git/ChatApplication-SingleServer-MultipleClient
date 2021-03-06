@@ -1,0 +1,11 @@
+g++ server.cpp -std=c++0x -lpthread -o server
+./server 8080
+
+g++ client.cpp -std=c++0x -lpthread -o client
+./client Ram 8080
+
+g++ client.cpp -std=c++0x -lpthread -o client
+./client Sham 8080
+
+g++ client.cpp -std=c++0x -lpthread -o client
+./client Sham 8080
